@@ -1,52 +1,35 @@
-Data Product: The Impact of Social Media on Mental Health & Anxiety
+# Project Reflection – Social Media & Mental Health Analysis
 
-Author: Yuquan.Deng
-Student ID: 2472588
+## Project Overview
+In this project, I analyzed a survey dataset to investigate the relationship between social media usage time and several mental health indicators: distraction, anxiety, sleep issues, and social comparison. The goal was to answer whether heavier social media users report worse mental health outcomes. I used Python with pandas, matplotlib, and seaborn to clean the data, perform exploratory analysis, and generate visualizations.
 
----
+## What Went Well
+The data cleaning process was straightforward: I renamed columns, converted numeric types, dropped missing values, and filtered to keep only social media users. I then transformed the `Time_Spent` variable into an ordered categorical and a numeric hour format, which allowed me to create meaningful comparisons. The visualizations – including time distribution, boxplots, correlation heatmap, and regression plot – clearly showed positive associations between usage time and mental distress. The high vs. low usage group comparison (≥3.5h/day vs. ≤2.5h/day) revealed consistent differences of 0.3–0.5 points on a 5-point scale. Platform analysis (using only the first platform per user) indicated that TikTok, Pinterest, and Facebook users had the highest average anxiety scores.
 
-1. Problem & Target User
-In the digital age, excessive screen time and the algorithms of social media platforms are increasingly linked to mental health issues, particularly among younger generations. 
-This data product investigates two core questions: 
-1. Which specific social media platforms induce the highest levels of anxiety? 
-2. Is there a statistical correlation between a user's distractibility and their anxiety score? 
+## Challenges Faced
+One challenge was handling the "platforms" column, which contained multiple platforms per user. Exploding the column would have double-counted anxiety scores, so I opted to take only the first platform as the primary platform. This is a reasonable simplification but may miss nuances for users who use multiple platforms equally. Another minor issue was the initial warning about chained assignment in pandas; I resolved it by using `.loc` for assignment.
 
-Target Users: Mental Health App Developers, Digital Wellbeing Marketers, and Tech Companies seeking data-driven insights to design healthier digital features (e.g., "Focus Modes").
+## Limitations
+The dataset is cross-sectional, so we cannot infer causality. All variables are self-reported, which may introduce bias (e.g., social desirability). The sample is not representative of the general population (mostly young adults). Also, the platform analysis assumes the first platform is the most important, which may not always be true.
 
-2. Data
-Source: Kaggle (Social Media and Mental Health Survey Dataset)
-Access Date:May 2024
-Key Fields Analyzed (Renamed for programmatic access):
-         `7. What social media platforms do you commonly use?` ➡️ `Platform`
-        `12. On a scale of 1 to 5, how easily distracted are you?` ➡️ `Distraction_Score`
-        `13. On a scale of 1 to 5, how much are you bothered by worries?` ➡️ `Anxiety_Score`
+## Future Improvements
+Given more time, I would:
+- Apply multiple linear regression to control for age, gender, and other confounders.
+- Collect objective screen time data (e.g., from smartphone logs).
+- Use a more robust method for platform analysis, such as indicator variables for each platform.
+- Include a longitudinal follow-up to explore directionality.
 
-3. Methods & Technical Execution
-This project was implemented using Python in a Jupyter Notebook environment. Key steps include:
-1.  Data Cleaning & Type Conversion: Handled missing values (`NaN`) and forced survey score columns into float formats using `pd.to_numeric()` to resolve `TypeError` during calculations.
-2.  Advanced Data Transformation: The raw `Platform` column contained multi-choice answers separated by commas (e.g., *"Facebook, Instagram, TikTok"*). I used string splitting and the pandas `.explode()` function to restructure the data, ensuring accurate single-platform analysis.
-3.  Visualization & Statistical Modeling: Built a horizontal bar chart to rank platform anxiety levels, and a Seaborn linear regression plot (with `jitter` applied to prevent discrete data overplotting) to analyze correlations.
+## AI Use Declaration
+I used **ChatGPT (OpenAI)** on **April 16, 2026** in the following ways:
+- Generated initial code for data cleaning, column renaming, and conversion of time categories.
+- Helped debug the pandas chained assignment warning.
+- Provided the structure and template for this reflection and the README file.
+- Suggested improvements for visualizations (e.g., adding titles, axis labels, saving figures).
 
-4. Key Findings & Business Insights
-Platform Impact: Users of short-video and infinite-scroll platforms (such as TikTok and Snapchat) reported the highest average anxiety scores. Conversely, older and text/community-based platforms (like Facebook and Reddit) ranked lower on the anxiety scale.
-The Distraction-Anxiety Link: The OLS regression line reveals a strong positive correlation between how easily users are distracted and their level of worry/anxiety. 
-Business Recommendation: Mental health apps should implement a mandatory "Screen-Time Intervention" or "Focus Mode" feature that triggers mindfulness prompts when users exhibit high-distraction usage patterns.
+All AI-generated code was reviewed, understood, and adapted by me. The final analysis, interpretation of results, and business recommendations are my own work. I also manually adjusted chart colors, labels, and saved output files to ensure clarity and relevance.
 
-5. How to run
-1. Download the `social_media_data.csv` and the `ACC102_Mini_Assignment.ipynb` notebook.
-2. Ensure both files are stored in the same local directory.
-3. Open the notebook in Jupyter or VS Code.
-4. Run the notebook cell by cell. 
-Required libraries: `pandas`, `matplotlib`, `seaborn`.*
+## Professional Practice
+This project reinforced the importance of reproducible analysis and clear communication. Writing a thorough README and documenting code with Markdown cells in the notebook made the work accessible to others. In the future, I will also include a `requirements.txt` file and consider using version control from the start.
 
-6. Product Demo Video 🎬
-[👉 Click here to watch the 3-minute Video Presentation](这里放你传到B站或网盘的视频链接！！！别忘了填！！！)
-
-7. Limitations & Next Steps
-Limitations: The dataset relies on self-reported scores (Likert scale 1-5), which can be subjective. Furthermore, *correlation does not imply causation*; we cannot definitively conclude whether distraction causes anxiety or if pre-existing anxiety leads to distractibility.
-Next Steps:Future iterations of this product could integrate real-time screen-time API data (e.g., Apple Screen Time) rather than relying on user estimates to build a more robust predictive model.
-
-
-🤖 AI Disclosure Statement
-In accordance with academic integrity guidelines, Generative AI (ChatGPT) was utilized strictly as a coding assistant in this project. 
-Specifically, when facing a `TypeError` during data conversion, the AI guided me to use `pd.to_numeric()`. I also used AI to learn the `.explode()` method to properly handle the comma-separated strings in the survey data. Finally, AI provided the foundational syntax for adding `jitter` to the Seaborn regression plot. All business logic, problem definition, and video presentation narratives were formulated entirely independently. All codes were verified and successfully executed by myself.
+## Conclusion
+Overall, the analysis supports the hypothesis that heavier social media use is associated with poorer mental health indicators. While causal claims cannot be made, the findings offer actionable insights for digital wellness applications.
