@@ -25,7 +25,7 @@
 
 ## 5. How to Run
 1. Clone this repository:  
-   `git clone https://github.com/your-username/social-media-mental-health-analysis.git`
+   `https://github.com/mxb8tb9nz2-cmyk/Social-Media-Mental-Health-Analysis`
 2. Install dependencies:  
    `pip install pandas matplotlib seaborn jupyter`
 3. Launch Jupyter Notebook and open `social_media_analysis_complete.ipynb`.
