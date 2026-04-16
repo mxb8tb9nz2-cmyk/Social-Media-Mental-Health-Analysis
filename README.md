@@ -28,7 +28,7 @@
    `https://github.com/mxb8tb9nz2-cmyk/Social-Media-Mental-Health-Analysis.git`
 2. Install dependencies:  
    `pip install pandas matplotlib seaborn jupyter`
-3. Launch Jupyter Notebook and open `social_media_analysis_complete.ipynb`.
+3. Launch Jupyter Notebook and open `social_media_analysis.ipynb`.
 4. Run all cells sequentially.
 
 ## 6. Demo Video
