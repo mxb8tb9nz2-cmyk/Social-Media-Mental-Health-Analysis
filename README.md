@@ -32,7 +32,7 @@
 4. Run all cells sequentially.
 
 ## 6. Demo Video
-[Click here to watch the demo](https://youtu.be/your-video-link)
+[Click here to watch the demo](https://youtu.be/UanoZVwBF5M)
 
 ## 7. Limitations & Next Steps
 - **Limitations:** Cross-sectional data (no causality), self-reported measures, sample skewed towards young adults.
